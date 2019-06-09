@@ -44,6 +44,31 @@ def max_coverage_featureset_transform(img, k=4, device=default_device):
     '''
     return VisualPrior.max_coverage_transform(img, feature_tasks, device)
 
+def feature_readout(img, feature_task='normal', device=default_device):
+    '''
+    Transforms an RGB image into a feature driven by some vision task, 
+    then returns the result of a readout of the feature.
+        Expects inputs:
+            shape  (batch_size, 3, 256, 256)
+            values [-1,1]
+        Outputs:
+            shape  (batch_size, 8, 16, 16)
+    '''
+    return VisualPrior.to_predicted_label(img, feature_tasks=[feature_task], device=device)
+
+def multi_feature_readout(img, feature_tasks=['normal'], device=default_device):
+    '''
+    Transforms an RGB image into a features driven by some vision tasks
+    then returns the readouts of the features.
+        Expects inputs:
+            shape  (batch_size, 3, 256, 256)
+            values [-1,1]
+        Outputs:
+            shape  (batch_size, 8, 16, 16)
+    '''
+    return VisualPrior.to_predicted_label(img, feature_tasks, device)
+
+
 
 class VisualPrior(object):
 
@@ -201,7 +226,6 @@ class VisualPriorPredictedLabel(object):
                 feature_tasks_to_load.append(feature_task)
         nets = cls._load_networks(net_paths_to_load)
         for feature_task, net in zip(feature_tasks_to_load, nets):
-            print(f"Loading {feature_task}")
             cls.feature_task_to_net[feature_task] = net
 
     @classmethod
