@@ -32,7 +32,8 @@ if __name__ == "__main__":
       packages =     [DISTNAME],
       version =      '0.1',
       license=       'MIT',
-      description =  'The official implementation of visual priors from the paper Mid-Level Visual Representations Improve Generalization and Sample Efficiency for Learning Visuomotor Policies. Arxiv preprint 2018. ',   # Give a short description about your library
+      description =  'The official implementation of visual priors from the paper Mid-Level Visual Representations Improve Generalization and Sample Efficiency for Learning Visuomotor Policies. Arxiv preprint 2018.',   
+      long_description_content_type='text/markdown',
       long_description=LONG_DESCRIPTION,
       author =       'Alexander Sax, Bradley Emi, Jeffrey Zhang, Amir R. Zamir, Silvio Savarese, Leonidas Guibas, Jitendra Malik', 
       url =          'https://github.com/alexsax/midlevel-reps',
