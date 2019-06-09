@@ -1,0 +1,6 @@
+for task in colorization curvature denoising edge_occlusion edge_texture egomotion fixated_pose jigsaw keypoints2d keypoints3d nonfixated_pose point_matching reshading depth_zbuffer depth_euclidean normal room_layout segment_unsup25d segment_unsup2d segment_semantic class_object class_scene inpainting vanishing_point; do
+    mv ../visual-prior-old/assets/networks/pytorch/${task}_encoder.dat assets/pytorch/${task}_encoder.pth;
+    git add .;
+    git commit -m "added ${task}";
+    git push origin networks;
+done
