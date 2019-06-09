@@ -1,13 +1,20 @@
-for task in colorization curvature denoising edge_occlusion edge_texture egomotion fixated_pose jigsaw keypoints2d keypoints3d nonfixated_pose point_matching reshading depth_zbuffer depth_euclidean normal room_layout segment_unsup25d segment_unsup2d segment_semantic class_object class_scene inpainting vanishing_point; do
+for task in autoencoding colorization curvature denoising edge_occlusion edge_texture egomotion fixated_pose jigsaw keypoints2d keypoints3d nonfixated_pose point_matching reshading depth_zbuffer depth_euclidean room_layout segment_unsup25d segment_unsup2d segment_semantic class_object class_scene inpainting vanishing_point; do
     mv ../visual-prior-old/assets/networks/pytorch/${task}_encoder.dat assets/pytorch/${task}_encoder.pth;
     git add .;
     git commit -m "added ${task}";
     git push origin networks;
 done
 
-for task in inpainting; do
-    mv ../visual-prior-old/assets/networks/pytorch/${task}_encoder.dat assets/pytorch/${task}_encoder.pth;
+for task in normal; do
+    mv ../visual-prior-old/assets/networks/pytorch/${task}_decoder.dat assets/pytorch/${task}_decoder.pth;
     git add .;
-    git commit -m "added ${task}";
+    git commit -m "added ${task} decoder";
     git push origin networks;
+done
+
+for f in $(ls assets/pytorch/*der*); do
+   sha_res=$(shasum -a 256 $f | cut -f1 -d ' ')
+   new_name="${f/-*.pth/-$sha_res}.pth"    
+   new_name="${new_name/\*/}"    
+   git mv $f $new_name
 done
