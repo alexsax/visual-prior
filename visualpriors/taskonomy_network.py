@@ -116,7 +116,7 @@ class TaskonomyNetwork(nn.Module):
         ''' 
             out_channels = None for decoder only
         '''
-        super().__init__()
+        super(TaskonomyNetwork, self).__init__()
         self.encoder = TaskonomyEncoder(eval_only=True)
         self.encoder.normalize_outputs = False
 
@@ -367,5 +367,5 @@ class TaskonomyEncoder(nn.Module):
         if val and self.eval_only:
             warnings.warn("Ignoring 'train()' in TaskonomyEncoder since 'eval_only' was set during initialization.", RuntimeWarning)
         else:
-            return super().train(val)
+            return super(TaskonomyEncoder, self).train(val)
 

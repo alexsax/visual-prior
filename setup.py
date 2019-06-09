@@ -13,8 +13,8 @@ from distutils.core import setup
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "visualpriors"))
 
-with open("README.md", encoding="utf8") as f:
-    readme = f.read()
+with open("README.md", 'rb') as f:
+    readme = f.read().decode("UTF-8")
 
 with open("LICENSE") as f:
     license = f.read()
@@ -30,14 +30,14 @@ if __name__ == "__main__":
     setup(
       name =         DISTNAME,
       packages =     [DISTNAME],
-      version =      '0.1',
+      version =      '0.3',
       license=       'MIT',
       description =  'The official implementation of visual priors from the paper Mid-Level Visual Representations Improve Generalization and Sample Efficiency for Learning Visuomotor Policies. Arxiv preprint 2018.',   
       long_description_content_type='text/markdown',
       long_description=LONG_DESCRIPTION,
       author =       'Alexander Sax, Bradley Emi, Jeffrey Zhang, Amir R. Zamir, Silvio Savarese, Leonidas Guibas, Jitendra Malik', 
       url =          'https://github.com/alexsax/midlevel-reps',
-      download_url = 'https://github.com/alexsax/visual-prior/archive/v0.1-alpha.1.tar.gz',
+      download_url = 'https://github.com/alexsax/visual-prior/archive/v0.2-alpha.tar.gz',
       keywords =     ['computer vision',
                       'robotics',
                       'perception',
