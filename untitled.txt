@@ -4,3 +4,10 @@ for task in colorization curvature denoising edge_occlusion edge_texture egomoti
     git commit -m "added ${task}";
     git push origin networks;
 done
+
+for task in class_scene inpainting vanishing_point; do
+    mv ../visual-prior-old/assets/networks/pytorch/${task}_encoder.dat assets/pytorch/${task}_encoder.pth;
+    git add .;
+    git commit -m "added ${task}";
+    git push origin networks;
+done
