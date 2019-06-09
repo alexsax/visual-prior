@@ -12,7 +12,6 @@ from distutils.core import setup
 
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "visualpriors"))
-from version import VERSION
 
 with open("README.md", encoding="utf8") as f:
     readme = f.read()
@@ -37,7 +36,7 @@ if __name__ == "__main__":
       long_description=LONG_DESCRIPTION,
       author =       'Alexander Sax, Bradley Emi, Jeffrey Zhang, Amir R. Zamir, Silvio Savarese, Leonidas Guibas, Jitendra Malik', 
       url =          'https://github.com/alexsax/midlevel-reps',
-      download_url = 'https://github.com/alexsax/midlevel-reps/archive/v_01.tar.gz',
+      download_url = 'https://github.com/alexsax/visual-prior/archive/v0.1-alpha.1.tar.gz',
       keywords =     ['computer vision',
                       'robotics',
                       'perception',
